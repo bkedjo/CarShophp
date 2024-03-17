@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <!-- Message défilant -->
+    <marquee behavior="scroll" direction="left" style="background-color: pink;">
+        <h1 style="color: white;">Bienvenue sur le site de vente et de location de voitures électriques</h1>
+    </marquee>
+
+    <br />
+    <br />
+
+    <!-- Bouton pour ajouter une voiture -->
+    <a class="btn btn-primary" href="<?= URI . "voitures/ajouter" ?>">Ajouter une voiture</a>
+
+    <!-- Tableau des voitures -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Modèle</th>
+                <th scope="col">Année</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Petite Description</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantité</th> <!-- Ajout de la colonne Quantité -->
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $cmpt = 1;
+            foreach ($voitures as $voiture) { ?>
+                <tr>
+                    <th scope="row"><?= $cmpt++; ?></th>
+                    <td>
+                        <img height="100px" width="100px"
+                            src="<?= (isset($voiture->chemin_image)) ? URI . $voiture->chemin_image : URI . 'assets/image.jpeg'; ?>">
+                    </td>
+                    <td><?= $voiture->brand; ?></td>
+                    <td><?= $voiture->model; ?></td>
+                    <td><?= $voiture->car_year; ?></td>
+                    <td><?= $voiture->price; ?></td>
+                    <td><?= $voiture->short_description; ?></td>
+                    <td><?= $voiture->long_description; ?></td>
+                    <td><?= $voiture->quantite; ?></td> <!-- Affichage de la quantité -->
+                    <td>
+                        <!-- Bouton pour ajouter au panier -->
+                        <a class="btn btn-sm btn-success" href="<?= URI . 'paniers/ajouter/' . $voiture->id_car; ?>">
+                            Ajouter panier
+                        </a>
+                        <!-- Bouton pour modifier la voiture -->
+                        <a class="btn btn-sm btn-warning" href="#">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <!-- Bouton pour supprimer la voiture -->
+                        <a class="btn btn-sm btn-danger" href="<?= URI . 'voitures/supprimer/' . $voiture->id_car; ?>">
+                            <i class="bi bi-trash3-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

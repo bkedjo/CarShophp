@@ -4,8 +4,8 @@ class Voitures extends Controllers
 {
     public function index()
     {
-        $voitures = new Voiture();
-        $voitures = $voitures->getVoitures();
+        $voiture = new Voiture();
+        $voitures = $voiture->getVoitures();
         $this->render("index", compact('voitures'));
     }
 
@@ -18,9 +18,9 @@ class Voitures extends Controllers
         if (isset($_POST['submit'])) {
             if (!$this->estVide($_POST)) {
                 unset($_POST['submit']);
-                $voitures = new Voiture();
+                $voiture = new Voiture();
                 global $oPDO;
-                $voitures->ajouter($_POST);
+                $voiture->ajouter($_POST);
                 $id_car = $oPDO->lastInsertId();
             }
             $this->telechargerImage($id_car);
@@ -31,10 +31,6 @@ class Voitures extends Controllers
 
     }
 
-    /**
-     * @param $id_car
-     * @return void
-     */
     private function telechargerImage($id_car)
     {
         if (isset($_FILES["image"]) && $_FILES["image"]["error"] === UPLOAD_ERR_OK) {
@@ -65,9 +61,9 @@ class Voitures extends Controllers
         $params = explode("/", $_GET['p']);
         if (isset($params[2])) {
             if (is_numeric($params[2])) {
-                $voitures = new Voiture();
+                $voiture = new Voiture();
                 $data = ["id_car" => $params[2]];
-                $voitures->supprimer($data);
+                $voiture->supprimer($data);
                 header('Location: ' . URI . 'voitures/index');
             }
         }
