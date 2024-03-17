@@ -5,7 +5,6 @@
 
         extract($data);
         ob_start();
-        //echo ROOT."views/".lcfirst(get_class($this))."/".$fichier.".php";
         require_once(ROOT."views/".lcfirst(get_class($this))."/".$fichier.".php");
         $contenu=ob_get_clean();
 
