@@ -22,6 +22,12 @@ class Voiture extends Model
         return $this->getLines();
     }
 
+    public function getUsers()
+    {
+        
+
+    }
+
     public function supprimer($data)
     {
         $this->sql = "delete from " . $this->table . " where id_car = :id_car";

@@ -12,7 +12,12 @@
     <br />
 
     <!-- Bouton pour ajouter une voiture -->
-    <a class="btn btn-primary" href="<?= URI . "voitures/ajouter" ?>">Ajouter une voiture</a>
+    
+    <div class="button-container">
+        <a class="btn btn-primary" href="<?= URI . "voitures/ajouter" ?>">Ajouter une voiture</a>
+        <a class="btn btn-primary" href="<?= URI . "users/index" ?>">Voir les Utilisateurs</a>
+        <a class="btn btn-primary" href="<?= URI . "voitures/consulter" ?>">Voir les Administrateurs</a>
+    </div>
 
     <!-- Tableau des voitures -->
     <table class="table">
@@ -58,7 +63,7 @@
                             Add card
                         </a>
                         <!-- Bouton pour modifier la voiture -->
-                        <a class="btn btn-sm btn-warning" href="#">
+                        <a class="btn btn-sm btn-warning" href="<?= URI . 'voitures/modifier/' . $voiture->id_car; ?>">
                             <i class="bi bi-pencil-square"></i>
                         </a>
                         <!-- Bouton pour supprimer la voiture -->

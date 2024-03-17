@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS car (
     car_year INT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     short_description TEXT,
-    long_description TEXT
+    long_description TEXT,
+    quantite INT NOT NULL
 );
 
 -- Table pour les clients
