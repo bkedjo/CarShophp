@@ -5,7 +5,7 @@ class Voitures extends Controllers
     public function index()
     {
         $voitures = new Voiture();
-        $voitures = $voitures->getVoiture();
+        $voitures = $voitures->getVoitures();
         $this->render("index", compact('voitures'));
     }
 
