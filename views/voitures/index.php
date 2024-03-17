@@ -1,9 +1,13 @@
 <div class="container mt-5">
     <!-- Message défilant -->
     <marquee behavior="scroll" direction="left" style="background-color: pink;">
-        <h1 style="color: white;">Bienvenue sur le site de vente et de location de voitures électriques</h1>
+        <h1 style="color: blue;">Bienvenue sur le site de vente et de location de voitures électriques</h1>
     </marquee>
 
+    <br />
+    <br />
+    <img height="400px" width="100%"
+    src= "<?= URI . "assets/best-electric-car.jpg"?>" alt="Description de l'image">
     <br />
     <br />
 
@@ -28,13 +32,18 @@
         </thead>
         <tbody>
             <?php
-            $cmpt = 1;
+            $cpt = 1;
             foreach ($voitures as $voiture) { ?>
                 <tr>
-                    <th scope="row"><?= $cmpt++; ?></th>
+                    <th scope="row"><?= $cpt++; ?></th>
                     <td>
-                        <img height="100px" width="100px"
-                            src="<?= (isset($voiture->chemin_image)) ? URI . $voiture->chemin_image : URI . 'assets/image.jpeg'; ?>">
+                        <img height="100px" width="150px"
+                            src="<?= 
+                            (isset($voiture->chemin_image)) ? 
+                            URI . $voiture->chemin_image : 
+                            URI . 'assets/best-electric-car.jpg'; 
+                            ?>
+                        ">
                     </td>
                     <td><?= $voiture->brand; ?></td>
                     <td><?= $voiture->model; ?></td>
@@ -46,7 +55,7 @@
                     <td>
                         <!-- Bouton pour ajouter au panier -->
                         <a class="btn btn-sm btn-success" href="<?= URI . 'paniers/ajouter/' . $voiture->id_car; ?>">
-                            Ajouter panier
+                            Add card
                         </a>
                         <!-- Bouton pour modifier la voiture -->
                         <a class="btn btn-sm btn-warning" href="#">

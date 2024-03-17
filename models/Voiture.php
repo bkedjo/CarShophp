@@ -11,14 +11,14 @@ class Voiture extends Model
     public function ajouter($data)
     {
         $this->sql = "insert into " . $this->table . " (brand, model, car_year, price, short_description, long_description, quantite) 
-                        VALUE (:brand, :model, :car_year, :pri :short_description, :long_description, :quantite)";
+                        VALUE (:brand, :model, :car_year, :price, :short_description, :long_description, :quantite)";
         return $this->getLines($data, null);
     }
 
     public function getVoitures()
     {
-        $this->sql = "select f.*,i.chemin_image from " . $this->table . " 
-        f left JOIN image i on f.id_car = i.id_car;";
+        $this->sql = "select c.*, i.chemin_image from " . $this->table . " 
+        c left JOIN image i on c.id_car = i.id_car;";
         return $this->getLines();
     }
 
