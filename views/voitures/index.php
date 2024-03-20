@@ -9,6 +9,7 @@
     <img height="400px" width="100%"
     src= "<?= URI . "assets/best-electric-car.jpg"?>" alt="Description de l'image">
     <br />
+        
     <br />
 
     <!-- Bouton pour ajouter une voiture -->
@@ -18,6 +19,9 @@
         <a class="btn btn-primary" href="<?= URI . "users/index" ?>">Voir les Utilisateurs</a>
         <a class="btn btn-primary" href="<?= URI . "voitures/consulter" ?>">Voir les Administrateurs</a>
     </div>
+    <br />
+        <h1>Liste des voitures en Vente:</h1>
+    <br />
 
     <!-- Tableau des voitures -->
     <table class="table">

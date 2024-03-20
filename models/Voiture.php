@@ -50,10 +50,10 @@ class Voiture extends Model
             return $this->getLines($data, null);
     }
 
-    public function search_year($annee)
+    public function search_year($car_year)
     {
-        $this->sql = "SELECT * FROM " . $this->table . " WHERE car_year = :annee";
-        return $this->getLines(["annee" => $annee]);
+        $this->sql = "SELECT * FROM " . $this->table . " WHERE car_year = :car_year";
+        return $this->getLines(["car_year" => $car_year]);
     }
 
 

@@ -23,8 +23,6 @@ class Paniers extends Controllers
             $panier->ajouter($id_car, 1);
         }
         header('Location: ' . URI . 'voitures/index');
-
-
     }
 
     public function modifier($id_car)

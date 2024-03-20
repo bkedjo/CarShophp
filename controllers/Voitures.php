@@ -111,7 +111,22 @@ class Voitures extends Controllers
         $this->render('modifier', ['voiture' => $voitures]);
     }
 
-    
+    public function search_year()
+    {
+        if (isset($_POST['search_year']) && !empty($_POST['car_year'])) {
+            $car_year = $_POST['car_year'];
+            $voiture = new Voiture();
+            $voitures = $voiture->search_year($car_year);
+            $this->render("index", compact('voitures'));
+        } else {
+            // Gérer le cas où l'année n'est pas spécifiée ou vide
+            echo "Veuillez entrer une année valide.";
+            header("Location: " . URI . "voitures/index");
+            // Arrêtez l'exécution du script ou redirigez l'utilisateur vers une autre page selon votre besoin
+            exit();
+        }
+    }
+
 
 
 

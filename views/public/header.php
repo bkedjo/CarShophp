@@ -71,13 +71,14 @@
                             (isset($_SESSION['Paniers'])) ?
                                 count($_SESSION['Paniers'])
                                 : 0;
-
-                            ?></i></a>
+                            ?>
+                        </i>
+                    </a>
                 </li>
 
             </ul>
                 <form class="d-flex" action="<?= URI . 'voitures/search_year' ?>" method="POST">
-                    <input class="form-control me-2" type="search" placeholder="Anneé recherché" aria-label="Search" name="year">
+                    <input class="form-control me-2" type="search" placeholder="Anneé recherché" aria-label="Search" name="car_year">
                     <button class="btn btn-outline-success" type="submit" name="search_year">Rechercher</button>
                 </form>
 

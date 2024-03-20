@@ -35,7 +35,7 @@
                         ?>></td>
                     <td><?= $voiture->brand; ?></td>
                     <td><?= $voiture->model; ?></td>
-                    <td><?= $voiture->year; ?></td>
+                    <td><?= $voiture->car_year; ?></td>
                     <td><?= $voiture->price; ?></td>
                     <td><?= $voiture->short_description; ?></td>
                     <td><?= $voiture->long_description; ?></td>
@@ -56,7 +56,7 @@
                         <button type="submit" class="btn btn-sm btn-warning col">
                             <i class="bi bi-pencil-square"></i>
                         </button>
-                        <!--                    <div class="col"></div>-->
+                        <!--    ajouter bouton acheter et louer      <div class="col"></div>-->
                         <a class="btn btn-sm btn-danger col" href=<?= URI . 'paniers/supprimer/' . $voiture->id_car; ?>>
                             <i class="bi bi-trash3-fill"></i>
                         </a>
