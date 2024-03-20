@@ -22,12 +22,6 @@ class Voiture extends Model
         return $this->getLines();
     }
 
-    public function getUsers()
-    {
-        
-
-    }
-
     public function supprimer($data)
     {
         $this->sql = "delete from " . $this->table . " where id_car = :id_car";
@@ -36,10 +30,30 @@ class Voiture extends Model
 
     public function getOneById($data)
     {
-        $this->sql = "select f.*,i.chemin_image from " . $this->table . " 
-        f left JOIN image i on f.id_car = i.id_car where f.id_car = :id_car";
+        $this->sql = "select c.*,i.chemin_image from " . $this->table . " 
+        c left JOIN image i on c.id_car = i.id_car where c.id_car = :id_car";
 
         return $this->getLines($data, true);
+    }
+    public function modifier($data)
+    {
+            $this->sql = "UPDATE " . $this->table . " 
+                            SET 
+                                brand = :brand,
+                                model = :model,
+                                car_year = :car_year,
+                                price = :price,
+                                short_description = :short_description,
+                                long_description = :long_description,
+                                quantite = :quantite
+                            WHERE id_car = :id_car";
+            return $this->getLines($data, null);
+    }
+
+    public function search_year($annee)
+    {
+        $this->sql = "SELECT * FROM " . $this->table . " WHERE car_year = :annee";
+        return $this->getLines(["annee" => $annee]);
     }
 
 

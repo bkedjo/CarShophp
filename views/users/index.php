@@ -45,5 +45,5 @@
             <?php } ?>
         </tbody>
     </table>
-    <a class="btn btn-primary" href="<?= URI . "users/index" ?>">Voir les voitures</a>
+    <a class="btn btn-primary" href="<?= URI . "voitures/index" ?>">Voir les voitures</a>
 </div>

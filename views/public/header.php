@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Vente des voitures</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -43,7 +43,7 @@
                 </li>
 
                 <?php
-                if (!isset($_SESSION['Utilisateur'])) {
+                if (!isset($_SESSION['users'])) {
 
                     ?>
                     <li class="nav-item">
@@ -76,10 +76,11 @@
                 </li>
 
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+                <form class="d-flex" action="<?= URI . 'voitures/search_year' ?>" method="POST">
+                    <input class="form-control me-2" type="search" placeholder="Anneé recherché" aria-label="Search" name="year">
+                    <button class="btn btn-outline-success" type="submit" name="search_year">Rechercher</button>
+                </form>
+
         </div>
     </div>
 </nav>

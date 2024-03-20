@@ -8,6 +8,11 @@ class Voitures extends Controllers
         $voitures = $voiture->getVoitures();
         $this->render("index", compact('voitures'));
     }
+    public function user(){
+        $voiture = new Voiture;
+        $voitures = $voiture->getVoitures();
+        $this->render("user",compact('voitures'));
+    }
 
     /**
      * @return void
@@ -47,11 +52,11 @@ class Voitures extends Controllers
             }
             if (move_uploaded_file($image_tmp, ROOT . $image_destination)) {
                 $image = new Image();
-                $data = [
+                $voitures = [
                     "id_car" => $id_car,
                     "chemin_image" => $image_destination
                 ];
-                $image->ajouter($data);
+                $image->ajouter($voitures);
             }
         }
     }
@@ -62,14 +67,54 @@ class Voitures extends Controllers
         if (isset($params[2])) {
             if (is_numeric($params[2])) {
                 $voiture = new Voiture();
-                $data = ["id_car" => $params[2]];
-                $voiture->supprimer($data);
+                $voitures = ["id_car" => $params[2]];
+                $voiture->supprimer($voitures);
                 header('Location: ' . URI . 'voitures/index');
             }
         }
-
-
     }
+        public function modifier($id_car)
+    {
+        // Vérifiez d'abord si le formulaire de modification a été soumis
+        if (isset($_POST['submit'])) {
+            // Vérifiez si les données du formulaire ne sont pas vides
+            if (!$this->estVide($_POST)) {
+                // Supprimez le champ 'submit' du tableau POST
+                unset($_POST['submit']);
+                // Créez une instance du modèle Voiture
+                $voiture = new Voiture();
+                // Récupérez les données de la voiture à modifier
+                $voitures = $voiture->getOneById(["id_car" => $id_car]);
+                // Vérifiez si la voiture existe avant de tenter de la modifier
+                if ($voitures) {
+                    // Mettez à jour les données de la voiture avec les données du formulaire
+                    $voitures->brand = $_POST['brand'];
+                    $voitures->model = $_POST['model'];
+                    $voitures->car_year = $_POST['car_year'];
+                    $voitures->price = $_POST['price'];
+                    $voitures->short_description = $_POST['short_description'];
+                    $voitures->long_description = $_POST['long_description'];
+                    $voitures->quantite = $_POST['quantite'];
+                    // Appelez la méthode modifier avec les données mises à jour
+                    $voiture->modifier($voitures);
+                } else {
+                    // Gérer le cas où la voiture n'existe pas
+                    echo "La voiture spécifiée n'existe pas.";
+                    // Arrêtez l'exécution du script ou redirigez l'utilisateur vers une autre page selon votre besoin
+                    exit();
+                }
+            }
+            // Redirigez l'utilisateur vers la page d'index des voitures après la modification
+            header("Location: " . URI . "voitures/index");
+        }
+        // Rendre la vue pour afficher le formulaire de modification
+        $this->render('modifier', ['voiture' => $voitures]);
+    }
+
+    
+
+
+
 }
 
 

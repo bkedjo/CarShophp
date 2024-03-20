@@ -43,7 +43,12 @@ class Auths extends Controllers
                 if ($user) {
                     if (password_verify($mot_de_passe, $user->mot_de_passe)) {
                         $_SESSION["users"] = $user;
-                        header("Location: " . URI . "voitures/index");
+                        if($user->id_role === 2){
+                            header("Location: ".URI."voitures/user");
+                        } elseif($user->id_role === 1){
+                            header("Location: ".URI."voitures/index");
+                        }
+                        exit();
 
                     } else {
                         $this->erreurs["emPass"] = "Email or password incorrect";
