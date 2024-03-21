@@ -10,8 +10,8 @@
             <th scope="col">Modele</th>
             <th scope="col">Année</th>
             <th scope="col">Prix</th>
-            <th scope="col">Quantite</th>
             <th scope="col">Courte Description</th>
+            <th scope="col">Quantite</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -38,7 +38,7 @@
                     <td><?= $voiture->car_year; ?></td>
                     <td><?= $voiture->price; ?></td>
                     <td><?= $voiture->short_description; ?></td>
-                    <td><?= $voiture->long_description; ?></td>
+                    
                     <td><input name="quantite" min="0" max="<?= $voiture->quantite; ?>" value="<?php
                         if ($voiture->quantite < $quantite) {
                             $quantite = $voiture->quantite;
