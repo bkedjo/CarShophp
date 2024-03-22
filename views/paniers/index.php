@@ -53,6 +53,10 @@
                                type="number">
                     </td>
                     <td class="row">
+                        <!-- Bouton Commander -->
+                        <a class="btn btn-sm btn-success col" href="<?= URI . 'paniers/commander/' . $voiture->id_car; ?>">
+                            Commander
+                        </a>
                         <button type="submit" class="btn btn-sm btn-warning col">
                             <i class="bi bi-pencil-square"></i>
                         </button>

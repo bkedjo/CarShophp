@@ -27,5 +27,9 @@
         <label for="quantite" class="form-label">Quantité</label>
         <input type="number" class="form-control" id="quantite" name="quantite" value="<?= $voiture->quantite ?>" required>
     </div>
+    <div class="form-group">
+            <label for="image" class="form-label">Choisir une Image :</label>
+            <input type="file" name="image" id="image" />
+        </div>
     <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
 </form>

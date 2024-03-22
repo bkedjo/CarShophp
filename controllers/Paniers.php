@@ -15,6 +15,13 @@ class Paniers extends Controllers
         $this->render('index', compact('voitures'));
 
     }
+    public function commander()
+    {
+        $panier = new Panier();
+        $voitures = $panier->getAll();
+        $this->render('commander', compact('voitures'));
+
+    }
 
     public function ajouter($id_car)
     {

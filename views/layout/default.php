@@ -9,5 +9,8 @@
     ?>
 </main>
 <footer>
+<?php
+    require_once ROOT."views/public/footer.php";
+    ?>
     <h3>je suis footer</h3>
 </footer>

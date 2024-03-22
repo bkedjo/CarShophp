@@ -73,7 +73,7 @@ class Voitures extends Controllers
             }
         }
     }
-        public function modifier($id_car)
+    public function modifier($id_car)
     {
         // Vérifiez d'abord si le formulaire de modification a été soumis
         if (isset($_POST['submit'])) {
@@ -95,6 +95,10 @@ class Voitures extends Controllers
                     $voitures->short_description = $_POST['short_description'];
                     $voitures->long_description = $_POST['long_description'];
                     $voitures->quantite = $_POST['quantite'];
+    
+                    // Utilisez la méthode telechargerImage() pour gérer le téléchargement de la nouvelle image
+                    $this->telechargerImage($id_car);
+    
                     // Appelez la méthode modifier avec les données mises à jour
                     $voiture->modifier($voitures);
                 } else {
@@ -110,6 +114,7 @@ class Voitures extends Controllers
         // Rendre la vue pour afficher le formulaire de modification
         $this->render('modifier', ['voiture' => $voitures]);
     }
+    
 
     public function search_year()
     {
