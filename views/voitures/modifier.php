@@ -1,4 +1,5 @@
-<form action="<?= URI . 'voitures/modifier/' . $voiture->id_car ?>" method="POST">
+<form action="<?= URI . 'voitures/modifier/' . $voiture->id_car; ?>" method="POST">
+<h1>Modifier Voiture:</h1>
     <div class="mb-3">
         <label for="brand" class="form-label">Marque</label>
         <input type="text" class="form-control" id="brand" name="brand" value="<?= $voiture->brand ?>" required>

@@ -75,32 +75,31 @@ class Voitures extends Controllers
     }
     public function modifier($id_car)
     {
+        $oVoiture = new Voiture();
+        $voiture = $oVoiture->getOneById(["id_car" => $id_car]);
         // Vérifiez d'abord si le formulaire de modification a été soumis
         if (isset($_POST['submit'])) {
             // Vérifiez si les données du formulaire ne sont pas vides
             if (!$this->estVide($_POST)) {
                 // Supprimez le champ 'submit' du tableau POST
                 unset($_POST['submit']);
-                // Créez une instance du modèle Voiture
-                $voiture = new Voiture();
-                // Récupérez les données de la voiture à modifier
-                $voitures = $voiture->getOneById(["id_car" => $id_car]);
+                
                 // Vérifiez si la voiture existe avant de tenter de la modifier
-                if ($voitures) {
+                if ($voiture) {
                     // Mettez à jour les données de la voiture avec les données du formulaire
-                    $voitures->brand = $_POST['brand'];
-                    $voitures->model = $_POST['model'];
-                    $voitures->car_year = $_POST['car_year'];
-                    $voitures->price = $_POST['price'];
-                    $voitures->short_description = $_POST['short_description'];
-                    $voitures->long_description = $_POST['long_description'];
-                    $voitures->quantite = $_POST['quantite'];
+                    $voiture->brand = $_POST['brand'];
+                    $voiture->model = $_POST['model'];
+                    $voiture->car_year = $_POST['car_year'];
+                    $voiture->price = $_POST['price'];
+                    $voiture->short_description = $_POST['short_description'];
+                    $voiture->long_description = $_POST['long_description'];
+                    $voiture->quantite = $_POST['quantite'];
     
                     // Utilisez la méthode telechargerImage() pour gérer le téléchargement de la nouvelle image
                     $this->telechargerImage($id_car);
     
                     // Appelez la méthode modifier avec les données mises à jour
-                    $voiture->modifier($voitures);
+                    $oVoiture->modifier($id_car, $_POST);
                 } else {
                     // Gérer le cas où la voiture n'existe pas
                     echo "La voiture spécifiée n'existe pas.";
@@ -112,7 +111,7 @@ class Voitures extends Controllers
             header("Location: " . URI . "voitures/index");
         }
         // Rendre la vue pour afficher le formulaire de modification
-        $this->render('modifier', ['voiture' => $voitures]);
+        $this->render('modifier', compact('voiture'));
     }
     
 

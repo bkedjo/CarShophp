@@ -14,6 +14,7 @@
                             <h5 class="card-title"><?= $voiture->brand; " ". $voiture->model; " ". $voiture->car_year;?></h5>
                             <p class="card-text"><?= $voiture->price; ?></p>
                             <p class="card-text"><?= $voiture->short_description; ?></p>
+                            <p class="card-text"><?= $voiture->quantite; ?></p>
                         </div>
                         <div class="card-footer">
                             <div class="d-flex justify-content-between align-items-center">

@@ -2,7 +2,7 @@
 <footer class="footer position-relative">
         <div class="row g-0 justify-content-between align-items-center h-100">
           <div class="col-12 col-sm-auto text-center">
-            <p class="mb-0 mt-2 mt-sm-0 text-900">Site elaboré par kedjo Bernard et...
+            <p class="mb-0 mt-2 mt-sm-0 text-900">Site elaboré par kedjo Bernard et Sanaa Layssar...
                 <span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|
 
                 </span><br class="d-sm-none" />
@@ -14,11 +14,11 @@
                 </span><br class="d-sm-none" />
                 <i>license</i> &copy;
             </p>
-            <p class="mb-0 mt-2 mt-sm-0 text-900">Se referer a la documentation
+            <p class="mb-0 mt-2 mt-sm-0 text-900">Se referer a la
                 <span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|
 
                 </span><br class="d-sm-none" />
-                <i>RESERVE</i> &copy;
+                <a href="<?= URI . "assets/plan et doc voiture.pdf" ?>" target="_blank">Documentation</a> &copy;
             </p>
           </div>
           <div class="col-12 col-sm-auto text-center">
