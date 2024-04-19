@@ -19,10 +19,10 @@
                         <div class="card-footer">
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Bouton Commander -->
-                                <a class="btn btn-sm btn-success" href="<?= URI . 'paniers/acheter/' . $voiture->id_car; ?>">
+                                <a class="btn btn-sm btn-success" href="<?= URI . 'paniers/paiement/' . $voiture->id_car; ?>">
                                     Acheter
                                 </a>
-                                <a class="btn btn-sm btn-success" href="<?= URI . 'paniers/louer/' . $voiture->id_car; ?>">
+                                <a class="btn btn-sm btn-success" href="<?= URI . 'paniers/paiement/' . $voiture->id_car; ?>">
                                     Louer
                                 </a>
                                 <a class="btn btn-sm btn-danger" href="<?= URI . 'paniers/supprimer/' . $voiture->id_car; ?>">

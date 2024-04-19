@@ -54,4 +54,15 @@ class Paniers extends Controllers
         header("Location: " . URI . "paniers/index");
     }
 
+    public function paiement()
+{
+    // Récupérer les informations sur le panier depuis le modèle PanierModel
+    $panier = new Panier();
+    $voitures = $panier->getAll();
+
+    // Afficher la vue pour le choix du mode de paiement
+    $this->render('paiement', compact('voitures'));
+}
+
+
 }
