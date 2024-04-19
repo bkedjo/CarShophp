@@ -14,7 +14,7 @@
         
     }
 
-    public function estVide($datas){
+    public function isEmpty($datas){
         foreach($datas as $data){
             if(empty($data)){
                 return true;
